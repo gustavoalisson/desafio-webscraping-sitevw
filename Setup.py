@@ -8,6 +8,4 @@ class Setup:
         self.brownser = ''
     
     def open_brownser(self):
-        self.brownser = webdriver.Chrome() 
-        
-      
+        self.brownser = webdriver.Chrome()

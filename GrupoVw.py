@@ -2,7 +2,6 @@ from Setup import Setup
 from selenium.webdriver.common.keys import Keys
 from time import sleep
 
-
 class GrupoVw:
     __slots__ = 'robot'
     
