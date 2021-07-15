@@ -33,7 +33,6 @@ class GrupoVw:
         iframe_5 = self.robot.brownser.find_element_by_xpath('//*[@id="HeaderMenu"]')
         self.robot.brownser.switch_to.frame(iframe_5)       
         
-    
     def login(self, user, robot):    
         self.robot.brownser.find_element_by_xpath('//*[@id="txtCPFCNPJ"]').send_keys(user)
         sleep(1)
