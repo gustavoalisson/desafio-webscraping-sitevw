@@ -71,21 +71,16 @@ class GrupoVw:
     
     def filter_links(self):
         xpath = '*//a'
-        text = 'https://www.vw.com.br/'.startswith('https://www.vw.com.br/')
         for xpath in self.robot.brownser.find_elements_by_xpath(xpath):
             lista = []
             attribute = xpath.get_attribute('href')
-            lista.append(attribute)
-            if text  != lista.index():
+            
+            if "https://www.vw.com.br/" not in attribute:
+                lista.append(attribute)
                 print(lista)
-             
-            
-
-            
-        
-        
-        
-                
+            else:
+                continue           
+                         
   
 grupo = GrupoVw()
 grupo.start()
