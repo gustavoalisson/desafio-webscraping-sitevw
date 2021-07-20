@@ -80,18 +80,22 @@ class GrupoVw:
 
     def filter_links(self):
         xpath = '*//a'
-        # span = '//a//span'
+                      
         for xpath in self.robot.brownser.find_elements_by_xpath(xpath):
             attribute = xpath.get_attribute('href')
-
+            element = xpath.text
+           
             if "https://www.vw.com.br/" not in attribute:
                 self.links.append(attribute)
+                self.name_link.append(element)
+                
             else:
                 continue
 
     def save_as_csv(self):
         linksDf = pd.DataFrame()
         linksDf['Links'] = self.links
+        linksDf['Nome do LINK'] = self.name_link
         linksDf.to_csv('index.csv')
 
 
@@ -106,4 +110,4 @@ grupo.goto_volkswagen_brasil()
 grupo.extract_text_save_txt()
 grupo.save_webpage_pdf()
 grupo.filter_links()
-# grupo.save_as_csv()
+grupo.save_as_csv()
